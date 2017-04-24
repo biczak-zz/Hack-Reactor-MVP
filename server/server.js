@@ -1,32 +1,24 @@
-const express = require('express');
-const path = require('path');
-var http = require('http');
-const app = express();
+var express = require('express')
+var app = express();
+var path = require('path');
 
-const searchPokemon = (query) => {
-  var options = {
-    "method": "GET",
-    "hostname": "pokeapi.co",
-    "port": null,
-    "path": "/api/v2/pokemon/" + query,
-    "headers": {
-      "cache-control": "no-cache",
-      "postman-token": "7a26070b-8713-e233-4999-13153491db43"
-    }
-  };
-
-  var req = http.request(options, function (res) {
-    var chunks = [];
-
-    res.on("data", function (chunk) {
-      chunks.push(chunk);
+app.use(express.static(path.join(__dirname, '../')));
+app.get('/', function (req, res) {
+  function searchPokemonAPI(query, callback) {
+    $.ajax({
+      url: `http://pokeapi.co/api/v2/pokemon/${query}`,
+      type: 'GET',
+      success: (data) => {
+        console.log(data);
+        return callback(data);
+      },
+      failure: function(err) {
+        console.log(err);
+      }
     });
+  }
+})
 
-    res.on("end", function () {
-      var body = Buffer.concat(chunks);
-      console.log(body.toString());
-    });
-  });
-
-  req.end();
-};
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});

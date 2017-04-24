@@ -1,11 +1,11 @@
 const PokemonViewer = (props) => (
   <div className="pokemon-viewer row">
     <div className="pokemon-viewer-info col-md-7">
-      <h3 className="pokemon-name">{props.pokemon.name}</h3>
       <img className="pokemonImage" />
-      <div className="cardDetails">
-        <h3 className="pokemon-id">{'Pokédex ID: ' + props.pokemon.id}</h3>
-      </div>
+        <h1 className="pokemonName"></h1>
+        <h3 className="pokemonId"></h3>
+        <h3 className="pokemonHeight"></h3>
+        <h3 className="pokemonWeight"></h3>
     </div>
   </div>
 );

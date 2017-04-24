@@ -9,7 +9,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getPokemon('Squirtle');
+    this.getPokemon('squirtle');
   };
 
   getPokemon(query) {
@@ -20,6 +20,10 @@ class App extends React.Component {
         pokedex: pokemon
       })
       $('.pokemonImage').attr('src', pokemon.sprites.front_default);
+      $('.pokemonName').text(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
+      $('.pokemonId').text('Pokédex ID: ' + pokemon.id);
+      $('.pokemonWeight').text('Weight: ' + Math.round((pokemon.weight * 2.20462) / 10) + ' lbs.');
+      $('.pokemonHeight').text('Height: ' + pokemon.height / 10 + ' m');
     })
   }
 
@@ -41,5 +45,5 @@ class App extends React.Component {
     )
   }
 }
-
+ReactDOM.render(<App />, document.getElementById('app'));
 window.App = App;

@@ -2,3 +2,13 @@ html, body {
   width: auto;
   height: auto;
 }
+
+.pokemonImage {
+  width: 200px;
+  height: 200px;
+}
+
+.pokemon-viewer-info {
+  position: relative;
+  left: 70%;
+}

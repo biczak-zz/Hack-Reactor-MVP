@@ -7,7 +7,6 @@ const PokedexEntry = (props) => (
       <div className="pokedex-entry-name">
         {props.forms}
       </div>
-      <div className="pokedex-entry-info">{'Pokédex ID: ' + props.pokemon.id}</div>
     </div>
   </div>
 );
