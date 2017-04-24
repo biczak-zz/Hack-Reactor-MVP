@@ -1,0 +1,22 @@
+{
+  "name": "biczak_mvp",
+  "version": "0.0.1",
+  "description": "MVP Project for Hack Reactor",
+  "main": "compiled/scripts/components/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Biczak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.4.1"
+  }
+}
