@@ -4,16 +4,20 @@
   "description": "MVP Project for Hack Reactor",
   "main": "scripts/index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/mongoose-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alex Biczak",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
     "browserify": "^14.3.0",
     "express": "^4.15.2",
     "express-react-views": "^0.10.2",
     "jquery": "^3.2.1",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.6",
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

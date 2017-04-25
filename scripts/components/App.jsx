@@ -9,25 +9,42 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.getPokemon('squirtle');
-  };
-
   getPokemon(query) {
-    $.post(`http://pokeapi.co/api/v2/pokemon/${query}`, function(pokemon) {
-      console.log(pokemon);
-      this.setState({
-        pokemon: pokemon,
-        pokedex: pokemon
-      })
-      $('.pokemonImage').attr('src', pokemon.sprites.front_default);
-      $('.pokemonName').text(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
-      $('.pokemonId').text('Pokédex ID: ' + pokemon.id);
-      $('.pokemonWeight').text('Weight: ' + Math.round((pokemon.weight * 2.20462) / 10) + ' lbs.');
-      $('.pokemonHeight').text('Height: ' + pokemon.height / 10 + ' m');
-}.bind(this));
-    // Fill the card list with data from the API, and Set the Current Card
+    axios.get(`http://pokeapi.co/api/v2/pokemon/${query}`)
+      .then(function (pokemon) {
+          $('#userInput').val(pokemon.data.forms[0].name.charAt(0).toUpperCase() + pokemon.data.forms[0].name.slice(1))
+          $('.pokemonImage').attr('src', pokemon.data.sprites.front_default);
+          $('.pokemonName').text(pokemon.data.forms[0].name.charAt(0).toUpperCase() + pokemon.data.forms[0].name.slice(1));
+          $('.pokemonId').text('Pokédex ID: ' + pokemon.data.id);
+          $('.pokemonWeight').text('Weight: ' + Math.round((pokemon.data.weight * 2.20462) / 10) + ' lbs.');
+          $('.pokemonHeight').text('Height: ' + pokemon.data.height / 10 + ' m');
+
+    });
+
 };
+
+  saveToDB(pokemon) {
+    $.ajax({
+      url: '/',
+      type: 'POST',
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('saveToDB');
+        return data;
+      },
+      failure: function() {
+        alert('post failed')
+      }
+    })
+  }
+//       console.log(pokemon);
+//
+
+componentDidMount() {
+  this.getPokemon('squirtle');
+};
+    // Fill the card list with data from the API, and Set the Current Card
+
   changePokemon() {
     console.log('Change Pokemon')
   }

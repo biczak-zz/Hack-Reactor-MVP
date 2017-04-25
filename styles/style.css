@@ -1,7 +1,10 @@
 html, body {
   width: auto;
   height: auto;
-  background: url('http://forrestkyle.com/wp-content/uploads/2017/03/Pokemon-Wallpaper-4E-HD-Cool.jpg');
+  background: url('https://wallpaperlost.com/images/pokemon-wallpaper-minimalist-14.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .pokemonImage {
@@ -12,4 +15,27 @@ html, body {
 .pokemon-viewer-info {
   position: relative;
   left: 62%;
+  color: white;
+}
+.saveToTeam {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+}
+.addToTeam {
+  position: relative;
+  top: -50px;
+  left: -150px;
+}
+.pokemonImage {
+  position: relative;
+  left: 275px;
+  top: 50px;
+}
+.pokemonName, .pokemonWeight, .pokemonHeight, .pokemonId {
+  position: relative;
+  left: -175px;
+  font-size: 36px;
+  top: -250px;
 }
