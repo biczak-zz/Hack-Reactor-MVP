@@ -6,6 +6,7 @@ const PokemonViewer = (props) => (
         <h3 className="pokemonId"></h3>
         <h3 className="pokemonHeight"></h3>
         <h3 className="pokemonWeight"></h3>
+        <h3 className="team"></h3>
     </div>
   </div>
 );

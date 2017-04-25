@@ -39,3 +39,30 @@ html, body {
   font-size: 36px;
   top: -250px;
 }
+
+.team {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  top: 77%;
+  display: flex;
+  width: 100%;
+
+}
+
+.team li {
+    flex-grow: 1;
+    float: right;
+    margin-right: 70px;
+    list-style: none;
+}
+
+li::before {
+  content: "";
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG');
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}

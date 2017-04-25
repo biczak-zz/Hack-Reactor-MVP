@@ -23,18 +23,6 @@ app.post('/', function(req, res) {
   });
   console.log(req.body.Pokémon + ' has been added to your team!')
 });
-app.post('/team', function(req, res) {
-  var userCollection = db.collection('teams');
-
-  userCollection.find({
-    "name": req.body.Pokémon,
-  },
-  function(err,obj) {
-    if(err) {
-      console.log('No');
-    }
-  })
-});
 
 app.get(`/`, function (error, response, body) {
   console.log('error:', error); // Print the error if one occurred

@@ -15,9 +15,37 @@
   <body>
     <div id="app"></div>
     <form class="addToTeam" id="teamButton" action="/" method="post">
-      <input id="userInput" name="Pokémon" type="text"/>
-      <input type="submit" value="submit"></input>
+      <input style="display: none;" id="userInput" name="Pokémon" type="text"/>
+      <input type="submit" value="Add to Team!" onClick="addToTeam()"></input>
+      <button onclick="removeFromTeam()">Remove Last From Team!</button>
     </form>
+    <ul class="team">
+
+    </ul>
+    <script>
+    $('#userInput').keyup(function() {
+      console.log('keyup')
+      if($('#userInput').val() === 'Joseph_Martin') {
+        alert('A Wild Joe Appeared!');
+        $("<audio></audio>").attr({
+          'src':'assets/easteregg.mp3',
+          'volume':0.5,
+          'autoplay':'autoplay'
+        }).appendTo("body");
+        $('.pokemonImage').attr('src', '/assets/easteregg.jpg');
+        $('.pokemonName').text('Joe');
+        $('.pokemonId').text('Pokedex ID: ∞');
+        $('.pokemonHeight').text('Height: 1,000,000 m');
+        $('.pokemonWeight').text('Weight: 1,000 lbs of Raw, Raw, Muscle');
+      };
+    })
+    var addToTeam = function() {
+      $("ul").append('<li>' + $('#userInput').val() + '</li>')
+    }
+    var removeFromTeam = () => {
+      $('.team li:last-child').remove();
+    }
+    </script>
   </body>
   <script src="scripts/lib/searchPokemon.js"></script>
   <script src="compiled/scripts/components/PokedexEntry.js"></script>
