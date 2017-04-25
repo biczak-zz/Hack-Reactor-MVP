@@ -1,14 +1,15 @@
 html, body {
   width: auto;
   height: auto;
+  background: url('http://forrestkyle.com/wp-content/uploads/2017/03/Pokemon-Wallpaper-4E-HD-Cool.jpg');
 }
 
 .pokemonImage {
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
 }
 
 .pokemon-viewer-info {
   position: relative;
-  left: 70%;
+  left: 62%;
 }

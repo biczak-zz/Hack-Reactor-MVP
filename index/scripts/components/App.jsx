@@ -1,8 +1,7 @@
-
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log('hi');
     this.state = {
       pokemon: props[0],
       pokedex: []
@@ -14,8 +13,8 @@ class App extends React.Component {
   };
 
   getPokemon(query) {
-    $.post(`http://pokeapi.co/api/v2/pokemon/${query}`, function(pokemon) {
-      console.log(pokemon);
+    // Fill the card list with data from the API, and Set the Current Card
+    window.searchPokemonAPI(query, (pokemon) => {
       this.setState({
         pokemon: pokemon,
         pokedex: pokemon
@@ -25,9 +24,9 @@ class App extends React.Component {
       $('.pokemonId').text('Pokédex ID: ' + pokemon.id);
       $('.pokemonWeight').text('Weight: ' + Math.round((pokemon.weight * 2.20462) / 10) + ' lbs.');
       $('.pokemonHeight').text('Height: ' + pokemon.height / 10 + ' m');
-}.bind(this));
-    // Fill the card list with data from the API, and Set the Current Card
-};
+    })
+  }
+
   changePokemon() {
     console.log('Change Pokemon')
   }
@@ -46,5 +45,5 @@ class App extends React.Component {
     )
   }
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+
 window.App = App;
